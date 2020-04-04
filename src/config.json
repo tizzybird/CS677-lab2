@@ -1,0 +1,16 @@
+{
+    "ip": {
+        "frontend": {
+            "addr": "localhost",
+            "port": 80
+        },
+        "catalog": {
+            "addr": "localhost",
+            "port": 80
+        },
+        "order": {
+            "addr": "localhost",
+            "port": 80
+        }
+    }
+}
