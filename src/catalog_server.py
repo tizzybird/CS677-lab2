@@ -1,5 +1,6 @@
 from flask import Flask, request, jsonify
 import threading
+from datetime import datetime
 import sys
 import csv
 app = Flask(__name__)
@@ -47,11 +48,15 @@ def change():
 # Endpoint for search
 @app.route('/search/<topic>', methods=['GET'])
 def search(topic):
+    start_time = datetime.now()
     sem.acquire()
     print("Incoming search request for topic " + topic, file = open('catalog_log.txt', 'a'))
     result = list(filter(lambda item: item[4] == topic, inventory))
     result = list(map(lambda book: {'item_no': book[0], 'book_name': book[1],'stock': book[2], 'cost': book[3], 'topic': book[4] }, result))
     sem.release()
+    end_time = datetime.now()
+    with open('query_by_topic_times.txt', 'a') as f:
+        f.write('%f\n' % (end_time - start_time).total_seconds())
     return jsonify({
         'books': result
     })
@@ -59,6 +64,7 @@ def search(topic):
 # Endpoint for lookup
 @app.route('/lookup/<item_no>', methods=['GET'])
 def lookup(item_no):
+    start_time = datetime.now()
     sem.acquire()
     print("Incoming lookup request for item " + item_no, file = open('catalog_log.txt', 'a'))
     for books in inventory:
@@ -70,6 +76,9 @@ def lookup(item_no):
             }
             break
     sem.release()
+    end_time = datetime.now()
+    with open('query_by_item_times.txt', 'a') as f:
+        f.write('%f\n' % (end_time - start_time).total_seconds())
     return jsonify(res)
 
 # Endpoint for update
@@ -83,7 +92,7 @@ def update(item_no):
             print("Stock for item " + item_no, "reduced to " + str(req['stock']), file = open('catalog_log.txt', 'a'))
             sem.release()
             return jsonify({'item_no': books[0], 'book_name': books[1],'stock': books[2], 'cost': books[3], 'topic': books[4] })
-
+    sem.release()
 
 
 if __name__ == '__main__':
