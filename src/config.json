@@ -2,7 +2,7 @@
     "ip": {
         "frontend": {
             "addr": "localhost",
-            "port": 80
+            "port": 5000
         },
         "catalog": {
             "addr": "localhost",

@@ -1,4 +1,8 @@
 {
+    "topics": [
+        "distributed systems",
+        "graduate school"
+    ],
     "booklist": [{
         "number": 1,
         "title": "How to get a good grade in 677 in 20 minutes a day.",
