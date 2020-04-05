@@ -13,6 +13,7 @@ catalogue_addr = sys.argv[1]
 @app.route('/buy/<item_no>', methods=['GET'])
 def buy(item_no):
     sem.acquire()
+    print("Buy request for item " + item_no, file = open('order_log.txt', 'a'))
     check_availability = requests.get('http://' + catalogue_addr + '/lookup/' + item_no)
     check_availability = check_availability.json()
     if(check_availability['stock'] == 0):
