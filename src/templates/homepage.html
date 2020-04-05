@@ -8,9 +8,9 @@
                 <form method='get' action='/search'>
                     <label>Search topic:</label><br>
                     {% if topicVal %}
-                    <input type="text" id="topic" name="topic" placeholder="Please type in Title" value="{{ topicVal }}">
+                    <input type="text" id="topic" name="topic" placeholder="Please type in Topic" value="{{ topicVal }}">
                     {% else %}
-                    <input type="text" id="topic" name="topic" placeholder="Please type in Title" value="">
+                    <input type="text" id="topic" name="topic" placeholder="Please type in Topic" value="">
                     {% endif %}
                     <input type="submit" value="Search">
                 </form>
@@ -56,15 +56,15 @@
                         <th>Title</th>
                         <th>Topic</th>
                         <th>Price</th>
-                        <th>number in stock</th>
+                        <th>Number in stock</th>
                     </tr>
                     {% for item in results %}
                     <tr>
                         <td>{{ item.number }}</td>
                         <td>{{ item.title }}</td>
                         <td>{{ item.topic }}</td>
-                        <td>{{ item.price }}</td>
-                        <td>{{ item.stock }}</td>
+                        <!-- <td>{{ item.price }}</td>
+                        <td>{{ item.stock }}</td> -->
                     </tr>
                     {% endfor %}
                 </table>
