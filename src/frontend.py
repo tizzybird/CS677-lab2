@@ -21,23 +21,45 @@ def search():
         if topicVal is None:
             topicVal = ""
         else:
-            pass
-        #     rq.post(CONFIG['ip_catalog'], json=data)
+            print(topicVal)
+            results = []
+            for item in DEFINE["booklist"]:
+                if item["topic"] == topicVal:
+                    results.append(item)
+
+            # return render_template('homepage.html',
+                # topicVal=topicVal, results=results)
+        #     rq.get("https://%s:%d/" % (CONFIG['ip_catalog'], CONFIG['ip_port']))
 
         lookupVal = request.values.get('lookupNum')
         if lookupVal is None:
             lookupVal = ""
         else:
-            pass
-        # if lookupNum is not None:
+            lookupVal = int(lookupVal) - 1
+            results = [DEFINE["booklist"][lookupVal]]
+            # return render_template('homepage.html',
+                # lookupVal=lookupVal, results=results)
+        #     rq.get("https://%s:%d/" % (CONFIG['ip_catalog'], CONFIG['ip_port']))
         #     rq.post(CONFIG['ip_catalog'], json=data)
 
-    return render_template('homepage.html', topicVal=topicVal, lookupVal=lookupVal)
+    if request.values.get('withoutUI'):
+        results = {
+            "results": results
+        }
+        return json.dumps(results)
+
+    return render_template('homepage.html', results=results,
+        topicVal=topicVal, lookupVal=lookupVal)
+
 
 @app.route('/buy', methods=['POST'])
 def buy():
     if request.method == 'POST':
         itemNum = request.values.get('buyNum')
+        # rq.post("https://%s:%d/" % (CONFIG['ip_catalog'], CONFIG['ip_port']))
+        pass
+
+    if request.values.get('withoutUI'):
         pass
 
 
