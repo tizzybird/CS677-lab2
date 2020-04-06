@@ -3,7 +3,6 @@ import os
 import random
 
 import time
-from datetime import datetime
 import requests
 
 from threading import Lock
@@ -61,10 +60,10 @@ class Client(thd.Thread):
                 
                 self._print('Client %d starts searching topic: %s', arg=(self.id, topic))
                 
-                start_time = datetime.now()
+                start_time = time.time()
                 res = requests.get(ip_frontend + 'search', params=params)
-                end_time = datetime.now()
-                diff = (end_time - start_time).total_seconds()
+                end_time = time.time()
+                diff = (end_time - start_time)
                 msg = 'Client %d search request success! Time: %f' if res.status_code == 200\
                     else 'Client %d Search request failed! Time: %f'
                 
@@ -80,10 +79,10 @@ class Client(thd.Thread):
 
                 self._print('Client %d starts looking for item: %d', arg=(self.id, item_num))
 
-                start_time = datetime.now()
+                start_time = time.time()
                 res = requests.get(ip_frontend + 'search', params=params)
-                end_time = datetime.now()
-                diff = (end_time - start_time).total_seconds()
+                end_time = time.time()
+                diff = (end_time - start_time)
                 msg = 'Client %d lookup request success! Time: %f' if res.status_code == 200\
                     else 'Client %d lookup request failed! Time: %f'
                 
@@ -98,10 +97,10 @@ class Client(thd.Thread):
                 }
 
                 self._print('Client %d is going to buy item number: %d', arg=(self.id, item_num))
-                start_time = datetime.now()
+                start_time = time.time()
                 res = requests.post(ip_frontend + 'buy', params=params)
-                end_time = datetime.now()
-                diff = (end_time - start_time).total_seconds()
+                end_time = time.time()
+                diff = (end_time - start_time)
                 msg = 'Client %d buy request success! Time: %f' if res.status_code == 200\
                     else 'Client %d buy request failed! Time: %f'
                 
@@ -113,8 +112,8 @@ class Client(thd.Thread):
 
 if __name__ == '__main__':
     clients = []
-    for peer_id in range(CONFIG["client_numbers"]):
-        client = Client(peer_id)
+    for client_id in range(CONFIG["client_numbers"]):
+        client = Client(client_id)
         clients.append(client)
         client.start()
 

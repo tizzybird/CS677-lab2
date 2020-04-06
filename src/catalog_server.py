@@ -37,14 +37,14 @@ for row in catalog:
 @app.route('/search/<topic>', methods=['GET'])
 def search(topic):
     start_time = datetime.now()
+    print("Incoming search request for topic " + topic, file=open('../tests/catalog_log.txt', 'a'))
     sem.acquire()
-    print("Incoming search request for topic " + topic, file = open('../tests/catalog_log.txt', 'a'))
     result = list(filter(lambda item: item[4] == topic, inventory))
     result = list(map(lambda book: {'item_no': book[0], 'book_name': book[1],'stock': book[2], 'cost': book[3], 'topic': book[4] }, result))
     sem.release()
-    end_time = datetime.now()
     with open(log_search, 'a') as f:
-        f.write('%f\n' % (end_time - start_time).total_seconds())
+        f.write('%f\n' % (datetime.now() - start_time).total_seconds())
+    
     return jsonify({
         'books': result
     })
@@ -53,8 +53,8 @@ def search(topic):
 @app.route('/lookup/<item_no>', methods=['GET'])
 def lookup(item_no):
     start_time = datetime.now()
+    print("Incoming lookup request for item " + item_no, file=open('../tests/catalog_log.txt', 'a'))
     sem.acquire()
-    print("Incoming lookup request for item " + item_no, file = open('../tests/catalog_log.txt', 'a'))
     for books in inventory:
         if(books[0] == int(item_no)):
             res = {
