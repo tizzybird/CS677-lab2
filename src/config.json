@@ -1,4 +1,12 @@
 {
+    "log_path": {
+        "client_search": "../tests/client_search_time.txt",
+        "client_lookup": "../tests/client_lookup_time.txt",
+        "client_buy": "../tests/client_buy_time.txt",
+        "frontend_search": "../tests/frontend_search_time.txt",
+        "frontend_lookup": "../tests/frontend_lookup_time.txt",
+        "frontend_buy": "../tests/frontend_buy_time.txt"
+    },
     "ip": {
         "frontend": {
             "addr": "localhost",
@@ -6,11 +14,11 @@
         },
         "catalog": {
             "addr": "localhost",
-            "port": 80
+            "port": 5001
         },
         "order": {
             "addr": "localhost",
-            "port": 80
+            "port": 5002
         }
     }
 }
