@@ -29,27 +29,6 @@ for row in catalog:
     tmp[3] = int(tmp[3])
     inventory.append(tmp)
 
-print(inventory)
-
-
-x = 1
-y = 1
-z = 1
-
-@app.route('/', methods=['GET'])
-def change():
-    sem.acquire()
-    global x
-    global y
-    global z
-    x += 1
-    y += 1
-    z += 1
-    return jsonify({
-        'x': x,
-        'y': y,
-        'z': z
-    })
 
 # Endpoint for search
 @app.route('/search/<topic>', methods=['GET'])
