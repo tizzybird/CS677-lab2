@@ -2,10 +2,16 @@ from flask import Flask, request, jsonify
 import threading
 from datetime import datetime
 import sys
+import json
 import csv
 app = Flask(__name__)
 sem = threading.BoundedSemaphore(1)
 
+with open('config.json') as f:
+    CONFIG = json.load(f)
+
+HOST_IP = CONFIG['ip']['catalog']['addr']
+HOST_PORT = CONFIG['ip']['catalog']['port']
 
 
 # This is the catalog. Rows are stored as [item_no, book_name, stock, cost, topic]
@@ -50,12 +56,12 @@ def change():
 def search(topic):
     start_time = datetime.now()
     sem.acquire()
-    print("Incoming search request for topic " + topic, file = open('catalog_log.txt', 'a'))
+    print("Incoming search request for topic " + topic, file = open('../tests/catalog_log.txt', 'a'))
     result = list(filter(lambda item: item[4] == topic, inventory))
     result = list(map(lambda book: {'item_no': book[0], 'book_name': book[1],'stock': book[2], 'cost': book[3], 'topic': book[4] }, result))
     sem.release()
     end_time = datetime.now()
-    with open('query_by_topic_times.txt', 'a') as f:
+    with open('../tests/query_by_topic_times.txt', 'a') as f:
         f.write('%f\n' % (end_time - start_time).total_seconds())
     return jsonify({
         'books': result
@@ -66,7 +72,7 @@ def search(topic):
 def lookup(item_no):
     start_time = datetime.now()
     sem.acquire()
-    print("Incoming lookup request for item " + item_no, file = open('catalog_log.txt', 'a'))
+    print("Incoming lookup request for item " + item_no, file = open('../tests/catalog_log.txt', 'a'))
     for books in inventory:
         if(books[0] == int(item_no)):
             res = {
@@ -77,7 +83,7 @@ def lookup(item_no):
             break
     sem.release()
     end_time = datetime.now()
-    with open('query_by_item_times.txt', 'a') as f:
+    with open('../tests/query_by_item_times.txt', 'a') as f:
         f.write('%f\n' % (end_time - start_time).total_seconds())
     return jsonify(res)
 
@@ -89,11 +95,11 @@ def update(item_no):
     for books in inventory:
         if(books[0] == int(item_no)):
             books[2] = req['stock']
-            print("Stock for item " + item_no, "reduced to " + str(req['stock']), file = open('catalog_log.txt', 'a'))
+            print("Stock for item " + item_no, "reduced to " + str(req['stock']), file = open('../tests/catalog_log.txt', 'a'))
             sem.release()
             return jsonify({'item_no': books[0], 'book_name': books[1],'stock': books[2], 'cost': books[3], 'topic': books[4] })
     sem.release()
 
 
 if __name__ == '__main__':
-    app.run(threaded=True)
+    app.run(host=HOST_IP, port=HOST_PORT, threaded=True)
