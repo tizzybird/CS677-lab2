@@ -107,8 +107,6 @@ class Client(thd.Thread):
                 self._print(msg, arg=(self.id, diff))
                 self._log('%f\n' % diff, log_buy)
 
-            time.sleep(0.6)
-
 
 if __name__ == '__main__':
     clients = []
