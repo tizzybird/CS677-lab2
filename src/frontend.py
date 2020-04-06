@@ -17,6 +17,10 @@ with open('define_frontend.json') as f:
 ip_catalog = "http://%s:%d/" % (CONFIG["ip"]["catalog"]["addr"], CONFIG["ip"]["catalog"]["port"])
 ip_order   = "http://%s:%d/" % (CONFIG["ip"]["order"]["addr"], CONFIG["ip"]["order"]["port"])
 
+log_search = CONFIG["log_path"]["folder_path"] + CONFIG["log_path"]["frontend_search"]
+log_lookup = CONFIG["log_path"]["folder_path"] + CONFIG["log_path"]["frontend_lookup"]
+log_buy    = CONFIG["log_path"]["folder_path"] + CONFIG["log_path"]["frontend_buy"]
+
 app = Flask(__name__)
 
 @app.route('/search', methods=['GET'])
@@ -44,10 +48,10 @@ def search():
             end_time = datetime.now()
             diff = (end_time - start_time).total_seconds()
             if topic_val == "":
-                with open(CONFIG["log_path"]["frontend_search"], 'a') as f:
+                with open(log_search, 'a') as f:
                     f.write('%f\n' % diff)
             else:
-                with open(CONFIG["log_path"]["frontend_lookup"], 'a') as f:
+                with open(log_lookup, 'a') as f:
                     f.write('%f\n' % diff)
 
             return json.dumps({ "results": results })
@@ -68,10 +72,10 @@ def search():
     end_time = datetime.now()
     diff = (end_time - start_time).total_seconds()
     if topic_val is None:
-        with open(CONFIG["log_path"]["frontend_search"], 'a') as f:
+        with open(log_search, 'a') as f:
             f.write('%f\n' % diff)
     else:
-        with open(CONFIG["log_path"]["frontend_lookup"], 'a') as f:
+        with open(log_lookup, 'a') as f:
             f.write('%f\n' % diff)
 
     return res.json()
@@ -86,7 +90,7 @@ def buy():
     if DEFINE["testenv"] == 0:
         end_time = datetime.now()
         diff = (end_time - start_time).total_seconds()
-        with open(CONFIG["log_path"]["frontend_buy"], 'a') as f:
+        with open(log_buy, 'a') as f:
             f.write('%f\n' % diff)
 
         if request.values.get('withoutUI'):
@@ -103,7 +107,7 @@ def buy():
     # if request.values.get('withoutUI'):
     end_time = datetime.now()
     diff = (end_time - start_time).total_seconds()
-    with open(CONFIG["log_path"]["frontend_buy"], 'a') as f:
+    with open(log_buy, 'a') as f:
         f.write('%f\n' % diff)
         
     if res.status_code == 200 and res.json()["BuyStatus"] == "Success":

@@ -16,6 +16,7 @@ CATALOGUE_IP = CONFIG['ip']['catalog']['addr']
 CATALOGUE_PORT = CONFIG['ip']['catalog']['port']
 CATALOGUE_ADDR = CATALOGUE_IP + ':' + str(CATALOGUE_PORT)
 
+log_buy = CONFIG["log_path"]["folder_path"] + CONFIG["log_path"]["order_buy"]
 
 # Endpoint for the buy function
 @app.route('/buy/<item_no>', methods=['GET'])
@@ -28,16 +29,17 @@ def buy(item_no):
     if(check_availability['stock'] == 0):
         sem.release()
         end_time = datetime.now()
-        with open('../tests/buy_item_times.txt', 'a') as f:
+        with open(log_buy, 'a') as f:
             f.write('%f\n' % (end_time - start_time).total_seconds())
         return jsonify({
             'BuyStatus': 'Error',
             'Reason': 'Item out of stock'
-        })
+        }), 201
+
     updated_book = requests.put('http://' + CATALOGUE_ADDR + '/update/' + item_no, json={'stock': check_availability['stock'] - 1})
     sem.release()
     end_time = datetime.now()
-    with open('../tests/buy_item_times.txt', 'a') as f:
+    with open(log_buy, 'a') as f:
         f.write('%f\n' % (end_time - start_time).total_seconds())
     return jsonify({
         'BuyStatus': 'Success',
