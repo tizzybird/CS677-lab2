@@ -1,5 +1,7 @@
 from flask import Flask, request
-from flask import render_template
+from flask import render_template, redirect
+
+from datetime import datetime
 
 import json
 import requests as rq
@@ -12,59 +14,106 @@ with open('config.json') as f:
 with open('define_frontend.json') as f:
     DEFINE = json.load(f)
 
+ip_catalog = "http://%s:%d/" % (CONFIG["ip"]["catalog"]["addr"], CONFIG["ip"]["catalog"]["port"])
+ip_order   = "http://%s:%d/" % (CONFIG["ip"]["order"]["addr"], CONFIG["ip"]["order"]["port"])
+
 app = Flask(__name__)
 
 @app.route('/search', methods=['GET'])
 def search():
-    if request.method == 'GET':
-        topicVal = request.values.get('topic')
-        if topicVal is None:
-            topicVal = ""
+    start_time = datetime.now()
+    topic_val = request.values.get('topic')
+    lookup_num = request.values.get('lookupNum')
+    ###################################################
+    # For testing on localhost, please OMIT this part
+    if DEFINE["testenv"] == 0:
+        if topic_val is None:
+            topic_val = ""
         else:
-            print(topicVal)
             results = []
             for item in DEFINE["booklist"]:
-                if item["topic"] == topicVal:
+                if item["topic"] == topic_val:
                     results.append(item)
 
-            # return render_template('homepage.html',
-                # topicVal=topicVal, results=results)
-        #     rq.get("https://%s:%d/" % (CONFIG['ip_catalog'], CONFIG['ip_port']))
-
-        lookupVal = request.values.get('lookupNum')
-        if lookupVal is None:
-            lookupVal = ""
+        if lookup_num is None:
+            lookup_num = ""
         else:
-            lookupVal = int(lookupVal) - 1
-            results = [DEFINE["booklist"][lookupVal]]
-            # return render_template('homepage.html',
-                # lookupVal=lookupVal, results=results)
-        #     rq.get("https://%s:%d/" % (CONFIG['ip_catalog'], CONFIG['ip_port']))
-        #     rq.post(CONFIG['ip_catalog'], json=data)
+            results = [DEFINE["booklist"][int(lookup_num) - 1]]
+        
+        if request.values.get('withoutUI'):
+            end_time = datetime.now()
+            diff = (end_time - start_time).total_seconds()
+            if topic_val == "":
+                with open(CONFIG["log_path"]["frontend_search"], 'a') as f:
+                    f.write('%f\n' % diff)
+            else:
+                with open(CONFIG["log_path"]["frontend_lookup"], 'a') as f:
+                    f.write('%f\n' % diff)
 
-    if request.values.get('withoutUI'):
-        results = {
-            "results": results
-        }
-        return json.dumps(results)
+            return json.dumps({ "results": results })
 
-    return render_template('homepage.html', results=results,
-        topicVal=topicVal, lookupVal=lookupVal)
+        return render_template('homepage.html', results=results, topicVal=topic_val, lookupVal=lookup_num)
+
+    #######################################
+    # For invoking micro services
+    # for topic searching
+    if topic_val is not None:
+        res = rq.get(ip_catalog + 'search/%s' % topic_val)
+
+    # for item lookup
+    if lookup_num is not None:
+        res = rq.get(ip_catalog + 'lookup/%s' % lookup_num)
+
+    # if request.values.get('withoutUI'):
+    end_time = datetime.now()
+    diff = (end_time - start_time).total_seconds()
+    if topic_val is None:
+        with open(CONFIG["log_path"]["frontend_search"], 'a') as f:
+            f.write('%f\n' % diff)
+    else:
+        with open(CONFIG["log_path"]["frontend_lookup"], 'a') as f:
+            f.write('%f\n' % diff)
+
+    return res.json()
 
 
 @app.route('/buy', methods=['POST'])
 def buy():
-    if request.method == 'POST':
-        itemNum = request.values.get('buyNum')
-        # rq.post("https://%s:%d/" % (CONFIG['ip_catalog'], CONFIG['ip_port']))
-        pass
+    start_time = datetime.now()
+    buy_num = request.values.get('buyNum')
+    ###################################################
+    # For testing on localhost, please OMIT this part
+    if DEFINE["testenv"] == 0:
+        end_time = datetime.now()
+        diff = (end_time - start_time).total_seconds()
+        with open(CONFIG["log_path"]["frontend_buy"], 'a') as f:
+            f.write('%f\n' % diff)
 
-    if request.values.get('withoutUI'):
-        pass
+        if request.values.get('withoutUI'):
+            return json.dumps({
+                "results": [DEFINE["booklist"][buy_num]]
+            })
+        
+        return redirect('/')
+
+    #######################################
+    # For invoking micro services
+    res = rq.get(ip_order + 'buy/%s' % buy_num) 
+
+    # if request.values.get('withoutUI'):
+    end_time = datetime.now()
+    diff = (end_time - start_time).total_seconds()
+    with open(CONFIG["log_path"]["frontend_buy"], 'a') as f:
+        f.write('%f\n' % diff)
+        
+    if res.status_code == 200 and res.json()["BuyStatus"] == "Success":
+        return "Success"
+        
+    return "Failed", 201
 
 
 @app.route('/', methods=['GET'])
 def homepage():
     return render_template('homepage.html', isDefault=True, booklist=DEFINE["booklist"])
 
-app.run()
+app.run(host=CONFIG["ip"]["frontend"]["addr"], port=CONFIG["ip"]["frontend"]["port"])

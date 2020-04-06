@@ -24,7 +24,7 @@ if __name__ == '__main__':
         action = random.choice(actions)
         
         if action == SEARCH:
-            topic = random.choice(DEFINE['topics'])
+            topic = random.choice(list(DEFINE['topics'].values()))
             print('Searching topic:', topic)
             params = {
                 'withoutUI': True,
@@ -34,35 +34,47 @@ if __name__ == '__main__':
             res = requests.get(ip_frontend + 'search', params=params)
             end_time = datetime.now()
             
-            with open('../tests/client_search_time.txt', 'a') as f:
-                f.write('%f\n' % (end_time - start_time).total_seconds())
+            diff = (end_time - start_time).total_seconds()
+            with open(CONFIG["log_path"]["client_search"], 'a') as f:
+                f.write('%f\n' % diff)
 
-            assert res.status_code == 200, 'Search request is failed!'
+            msg = 'Search request success!' if res.status_code == 200 else 'Search request failed!'
+            print(msg + ' Time: %f' % diff)
 
         elif action == LOOKUP:
-            lookupNum = random.randint(1, 4)
-            print('Start a lookup for number:', lookupNum)
+            item_num = random.randint(1, 4)
+            print('Start a lookup for item number:', item_num)
             params = {
                 'withoutUI': True,
-                'lookupNum': lookupNum
+                'lookupNum': item_num
             }
             start_time = datetime.now()
             res = requests.get(ip_frontend + 'search', params=params)
             end_time = datetime.now()
             
-            with open('../tests/client_lookup_time.txt', 'a') as f:
-                f.write('%f\n' % (end_time - start_time).total_seconds())
+            diff = (end_time - start_time).total_seconds()
+            with open(CONFIG["log_path"]["client_lookup"], 'a') as f:
+                f.write('%f\n' % diff)
 
-            assert res.status_code == 200, 'Lookup request is failed!'
+            msg = 'Search request success!' if res.status_code == 200 else 'Search request failed!'
+            print(msg + ' Time: %f' % diff)
 
-        # else:
-        #     item = random.randint(1, 4)
-        #     print('Trying to buy', book_names[str(item)])
-        #     r = requests.get(FRONTEND_SERVER + 'buy?item=' + str(item))
-        #     print(r.status_code)
-        #     assert r.status_code == 200, 'Buy request failed!'
-        #     print('Successfully bought', book_names[str(item)])
+        else:
+            item_num = random.randint(1, 4)
+            print('Going to buy item number:', item_num)
+            params = {
+                'withoutUI': True,
+                'buyNum': item_num
+            }
+            start_time = datetime.now()
+            res = requests.post(ip_frontend + 'buy', params=params)
+            end_time = datetime.now()
+            
+            diff = (end_time - start_time).total_seconds()
+            with open(CONFIG["log_path"]["client_buy"], 'a') as f:
+                f.write('%f\n' % diff)
 
-        # update_stock()
+            msg = 'Search request success!' if res.status_code == 200 else 'Search request failed!'
+            print(msg + ' Time: %f' % diff)
 
-        time.sleep(1)
+        time.sleep(0.6)
