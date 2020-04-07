@@ -1,0 +1,414 @@
+Incoming search request for topic DS
+Incoming search request for topic GS
+Incoming search request for topic DS
+Incoming search request for topic DS
+Incoming search request for topic GS
+Incoming search request for topic DS
+Incoming search request for topic GS
+Incoming search request for topic DS
+Incoming search request for topic GS
+Incoming search request for topic DS
+Incoming search request for topic GS
+Incoming search request for topic DS
+Incoming search request for topic GS
+Incoming search request for topic DS
+Incoming search request for topic GS
+Incoming search request for topic DS
+Incoming search request for topic GS
+Incoming search request for topic DS
+Incoming search request for topic GS
+Incoming search request for topic DS
+Incoming search request for topic GS
+Incoming lookup request for item 1
+Incoming lookup request for item 2
+Incoming lookup request for item 2
+Stock for item 2 reduced to 0
+Incoming lookup request for item 2
+Incoming search request for topic DS
+Incoming search request for topic GS
+Incoming lookup request for item 1
+Incoming lookup request for item 2
+Incoming lookup request for item 2
+Stock for item 2 reduced to 0
+Incoming lookup request for item 2
+Incoming lookup request for item 2
+Stock for item 2 reduced to 2
+Incoming lookup request for item 2
+Stock for item 2 reduced to 1
+Incoming search request for topic DS
+Incoming search request for topic GS
+Incoming lookup request for item 1
+Incoming lookup request for item 2
+Incoming lookup request for item 2
+Stock for item 2 reduced to 0
+Incoming lookup request for item 2
+Incoming lookup request for item 1
+Stock for item 1 reduced to 2
+Incoming lookup request for item 1
+Stock for item 1 reduced to 1
+Incoming lookup request for item 2
+Stock for item 2 reduced to 2
+Incoming lookup request for item 2
+Stock for item 2 reduced to 1
+Incoming lookup request for item 3
+Stock for item 3 reduced to 2
+Incoming lookup request for item 3
+Stock for item 3 reduced to 1
+Incoming lookup request for item 4
+Stock for item 4 reduced to 2
+Incoming lookup request for item 4
+Stock for item 4 reduced to 1
+Incoming search request for topic DS
+Incoming search request for topic GS
+Incoming lookup request for item 1
+Incoming lookup request for item 2
+Incoming lookup request for item 2
+Stock for item 2 reduced to 0
+Incoming lookup request for item 2
+Incoming lookup request for item 1
+Stock for item 1 reduced to 2
+Incoming lookup request for item 1
+Stock for item 1 reduced to 1
+Incoming lookup request for item 1
+Stock for item 1 reduced to 0
+Incoming lookup request for item 1
+Incoming lookup request for item 2
+Stock for item 2 reduced to 2
+Incoming lookup request for item 2
+Stock for item 2 reduced to 1
+Incoming lookup request for item 2
+Stock for item 2 reduced to 0
+Incoming lookup request for item 2
+Incoming lookup request for item 3
+Stock for item 3 reduced to 2
+Incoming lookup request for item 3
+Stock for item 3 reduced to 1
+Incoming lookup request for item 3
+Stock for item 3 reduced to 0
+Incoming lookup request for item 3
+Incoming lookup request for item 4
+Stock for item 4 reduced to 2
+Incoming lookup request for item 4
+Stock for item 4 reduced to 1
+Incoming lookup request for item 4
+Stock for item 4 reduced to 0
+Incoming lookup request for item 4
+Incoming lookup request for item 1
+Stock for item 1 reduced to 2
+Incoming lookup request for item 1
+Stock for item 1 reduced to 1
+Incoming lookup request for item 1
+Stock for item 1 reduced to 0
+Incoming lookup request for item 1
+Incoming lookup request for item 1
+Incoming lookup request for item 1
+Incoming lookup request for item 2
+Stock for item 2 reduced to 2
+Incoming lookup request for item 2
+Stock for item 2 reduced to 1
+Incoming lookup request for item 2
+Stock for item 2 reduced to 0
+Incoming lookup request for item 2
+Incoming lookup request for item 2
+Incoming lookup request for item 2
+Incoming lookup request for item 3
+Stock for item 3 reduced to 2
+Incoming lookup request for item 3
+Stock for item 3 reduced to 1
+Incoming lookup request for item 3
+Stock for item 3 reduced to 0
+Incoming lookup request for item 3
+Incoming lookup request for item 3
+Incoming lookup request for item 3
+Incoming lookup request for item 4
+Stock for item 4 reduced to 2
+Incoming lookup request for item 4
+Stock for item 4 reduced to 1
+Incoming lookup request for item 4
+Stock for item 4 reduced to 0
+Incoming lookup request for item 4
+Incoming lookup request for item 4
+Incoming lookup request for item 4
+Incoming lookup request for item 1
+Stock for item 1 reduced to 2
+Incoming lookup request for item 1
+Stock for item 1 reduced to 1
+Incoming lookup request for item 1
+Stock for item 1 reduced to 0
+Incoming lookup request for item 1
+Incoming lookup request for item 1
+Incoming lookup request for item 1
+Incoming lookup request for item 2
+Stock for item 2 reduced to 2
+Incoming lookup request for item 2
+Stock for item 2 reduced to 1
+Incoming lookup request for item 2
+Stock for item 2 reduced to 0
+Incoming lookup request for item 2
+Incoming lookup request for item 2
+Incoming lookup request for item 2
+Incoming lookup request for item 3
+Stock for item 3 reduced to 2
+Incoming lookup request for item 3
+Stock for item 3 reduced to 1
+Incoming lookup request for item 3
+Stock for item 3 reduced to 0
+Incoming lookup request for item 3
+Incoming lookup request for item 3
+Incoming lookup request for item 3
+Incoming lookup request for item 4
+Stock for item 4 reduced to 2
+Incoming lookup request for item 4
+Stock for item 4 reduced to 1
+Incoming lookup request for item 4
+Stock for item 4 reduced to 0
+Incoming lookup request for item 4
+Incoming lookup request for item 4
+Incoming lookup request for item 4
+Incoming search request for topic DS
+Incoming search request for topic GS
+Incoming lookup request for item 1
+Incoming lookup request for item 2
+Incoming lookup request for item 2
+Stock for item 2 reduced to 0
+Incoming lookup request for item 2
+Incoming lookup request for item 1
+Stock for item 1 reduced to 2
+Incoming lookup request for item 1
+Stock for item 1 reduced to 1
+Incoming lookup request for item 1
+Stock for item 1 reduced to 0
+Incoming lookup request for item 1
+Incoming lookup request for item 2
+Stock for item 2 reduced to 2
+Incoming lookup request for item 2
+Stock for item 2 reduced to 1
+Incoming lookup request for item 2
+Stock for item 2 reduced to 0
+Incoming lookup request for item 2
+Incoming lookup request for item 3
+Stock for item 3 reduced to 2
+Incoming lookup request for item 3
+Stock for item 3 reduced to 1
+Incoming lookup request for item 3
+Stock for item 3 reduced to 0
+Incoming lookup request for item 3
+Incoming lookup request for item 4
+Stock for item 4 reduced to 2
+Incoming lookup request for item 4
+Stock for item 4 reduced to 1
+Incoming lookup request for item 4
+Stock for item 4 reduced to 0
+Incoming lookup request for item 4
+Incoming search request for topic DS
+Incoming search request for topic GS
+Incoming lookup request for item 1
+Incoming lookup request for item 2
+Incoming lookup request for item 2
+Stock for item 2 reduced to 0
+Incoming lookup request for item 2
+Incoming lookup request for item 1
+Stock for item 1 reduced to 2
+Incoming lookup request for item 1
+Stock for item 1 reduced to 1
+Incoming lookup request for item 1
+Stock for item 1 reduced to 0
+Incoming lookup request for item 1
+Incoming lookup request for item 2
+Stock for item 2 reduced to 2
+Incoming lookup request for item 2
+Stock for item 2 reduced to 1
+Incoming lookup request for item 2
+Stock for item 2 reduced to 0
+Incoming lookup request for item 2
+Incoming lookup request for item 3
+Stock for item 3 reduced to 2
+Incoming lookup request for item 3
+Stock for item 3 reduced to 1
+Incoming lookup request for item 3
+Stock for item 3 reduced to 0
+Incoming lookup request for item 3
+Incoming lookup request for item 4
+Stock for item 4 reduced to 2
+Incoming lookup request for item 4
+Stock for item 4 reduced to 1
+Incoming lookup request for item 4
+Stock for item 4 reduced to 0
+Incoming lookup request for item 4
+Incoming search request for topic DS
+Incoming search request for topic GS
+Incoming lookup request for item 1
+Incoming lookup request for item 2
+Incoming lookup request for item 2
+Stock for item 2 reduced to 0
+Incoming lookup request for item 2
+Incoming lookup request for item 1
+Stock for item 1 reduced to 2
+Incoming lookup request for item 1
+Stock for item 1 reduced to 1
+Incoming lookup request for item 1
+Stock for item 1 reduced to 0
+Incoming lookup request for item 1
+Incoming lookup request for item 2
+Stock for item 2 reduced to 2
+Incoming lookup request for item 2
+Stock for item 2 reduced to 1
+Incoming lookup request for item 2
+Stock for item 2 reduced to 0
+Incoming lookup request for item 2
+Incoming lookup request for item 3
+Stock for item 3 reduced to 2
+Incoming lookup request for item 3
+Stock for item 3 reduced to 1
+Incoming lookup request for item 3
+Stock for item 3 reduced to 0
+Incoming lookup request for item 3
+Incoming lookup request for item 4
+Stock for item 4 reduced to 2
+Incoming lookup request for item 4
+Stock for item 4 reduced to 1
+Incoming lookup request for item 4
+Stock for item 4 reduced to 0
+Incoming lookup request for item 4
+Incoming lookup request for item 1
+Stock for item 1 reduced to 2
+Incoming lookup request for item 1
+Stock for item 1 reduced to 1
+Incoming lookup request for item 1
+Stock for item 1 reduced to 0
+Incoming lookup request for item 1
+Incoming lookup request for item 1
+Incoming lookup request for item 1
+Incoming lookup request for item 2
+Stock for item 2 reduced to 2
+Incoming lookup request for item 2
+Stock for item 2 reduced to 1
+Incoming lookup request for item 2
+Stock for item 2 reduced to 0
+Incoming lookup request for item 2
+Incoming lookup request for item 2
+Incoming lookup request for item 2
+Incoming lookup request for item 3
+Stock for item 3 reduced to 2
+Incoming lookup request for item 3
+Stock for item 3 reduced to 1
+Incoming lookup request for item 3
+Stock for item 3 reduced to 0
+Incoming lookup request for item 3
+Incoming lookup request for item 3
+Incoming lookup request for item 3
+Incoming lookup request for item 4
+Stock for item 4 reduced to 2
+Incoming lookup request for item 4
+Stock for item 4 reduced to 1
+Incoming lookup request for item 4
+Stock for item 4 reduced to 0
+Incoming lookup request for item 4
+Incoming lookup request for item 4
+Incoming lookup request for item 4
+Incoming search request for topic DS
+Incoming search request for topic GS
+Incoming lookup request for item 1
+Incoming lookup request for item 2
+Incoming lookup request for item 2
+Stock for item 2 reduced to 0
+Incoming lookup request for item 2
+Incoming lookup request for item 1
+Stock for item 1 reduced to 2
+Incoming lookup request for item 1
+Stock for item 1 reduced to 1
+Incoming lookup request for item 1
+Stock for item 1 reduced to 0
+Incoming lookup request for item 1
+Incoming lookup request for item 2
+Stock for item 2 reduced to 2
+Incoming lookup request for item 2
+Stock for item 2 reduced to 1
+Incoming lookup request for item 2
+Stock for item 2 reduced to 0
+Incoming lookup request for item 2
+Incoming lookup request for item 3
+Stock for item 3 reduced to 2
+Incoming lookup request for item 3
+Stock for item 3 reduced to 1
+Incoming lookup request for item 3
+Stock for item 3 reduced to 0
+Incoming lookup request for item 3
+Incoming lookup request for item 4
+Stock for item 4 reduced to 2
+Incoming lookup request for item 4
+Stock for item 4 reduced to 1
+Incoming lookup request for item 4
+Stock for item 4 reduced to 0
+Incoming lookup request for item 4
+Incoming search request for topic DS
+Incoming search request for topic GS
+Incoming lookup request for item 1
+Incoming lookup request for item 2
+Incoming lookup request for item 2
+Stock for item 2 reduced to 0
+Incoming lookup request for item 2
+Incoming lookup request for item 1
+Stock for item 1 reduced to 2
+Incoming lookup request for item 1
+Stock for item 1 reduced to 1
+Incoming lookup request for item 1
+Stock for item 1 reduced to 0
+Incoming lookup request for item 1
+Incoming lookup request for item 2
+Stock for item 2 reduced to 2
+Incoming lookup request for item 2
+Stock for item 2 reduced to 1
+Incoming lookup request for item 2
+Stock for item 2 reduced to 0
+Incoming lookup request for item 2
+Incoming lookup request for item 3
+Stock for item 3 reduced to 2
+Incoming lookup request for item 3
+Stock for item 3 reduced to 1
+Incoming lookup request for item 3
+Stock for item 3 reduced to 0
+Incoming lookup request for item 3
+Incoming lookup request for item 4
+Stock for item 4 reduced to 2
+Incoming lookup request for item 4
+Stock for item 4 reduced to 1
+Incoming lookup request for item 4
+Stock for item 4 reduced to 0
+Incoming lookup request for item 4
+Incoming lookup request for item 1
+Stock for item 1 reduced to 2
+Incoming lookup request for item 1
+Stock for item 1 reduced to 1
+Incoming lookup request for item 1
+Stock for item 1 reduced to 0
+Incoming lookup request for item 1
+Incoming lookup request for item 1
+Incoming lookup request for item 1
+Incoming lookup request for item 2
+Stock for item 2 reduced to 2
+Incoming lookup request for item 2
+Stock for item 2 reduced to 1
+Incoming lookup request for item 2
+Stock for item 2 reduced to 0
+Incoming lookup request for item 2
+Incoming lookup request for item 2
+Incoming lookup request for item 2
+Incoming lookup request for item 3
+Stock for item 3 reduced to 2
+Incoming lookup request for item 3
+Stock for item 3 reduced to 1
+Incoming lookup request for item 3
+Stock for item 3 reduced to 0
+Incoming lookup request for item 3
+Incoming lookup request for item 3
+Incoming lookup request for item 3
+Incoming lookup request for item 4
+Stock for item 4 reduced to 2
+Incoming lookup request for item 4
+Stock for item 4 reduced to 1
+Incoming lookup request for item 4
+Stock for item 4 reduced to 0
+Incoming lookup request for item 4
+Incoming lookup request for item 4
+Incoming lookup request for item 4

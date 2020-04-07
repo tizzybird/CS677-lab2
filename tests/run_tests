@@ -1,0 +1,50 @@
+#!/bin/bash
+
+cd ../src
+python frontend.py > flask_logs.txt 2>&1 &
+sleep 1
+python catalog_server.py catalog.csv > flask_logs.txt 2>&1 &
+process_id=$!
+sleep 1
+python order_server.py > flask_logs.txt 2>&1 &
+sleep 1
+cd ../tests
+python test1.py
+kill -9 $process_id
+cd ../src
+python catalog_server.py catalog2.csv > flask_logs.txt 2>&1 &
+process_id=$!
+sleep 1
+cd ../tests
+python test2.py
+python test3.py 1 & python test3.py 2 &
+sleep 2
+#kill -9 $test3_id1
+#kill -9 $test3_id2
+kill -9 $process_id
+cd ../src
+python catalog_server.py catalog3.csv > flask_logs.txt 2>&1 &
+process_id=$!
+sleep 1
+cd ../tests
+python test4.py 1 &
+test4_id1=$!
+python test4.py 2 &
+test4_id2=$!
+sleep 2
+kill -9 $process_id
+cd ../src
+python catalog_server.py catalog3.csv > flask_logs.txt 2>&1 &
+process_id=$!
+sleep 2
+cd ../tests
+python test5.py 1 & python test5.py 2 & python test5.py 3 &
+
+
+
+
+
+
+
+
+

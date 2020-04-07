@@ -33,6 +33,7 @@ def buy(item_no):
             f.write('%f\n' % (end_time - start_time).total_seconds())
         return jsonify({
             'BuyStatus': 'Error',
+            'Item': check_availability['book_name'],
             'Reason': 'Item out of stock'
         }), 201
 
