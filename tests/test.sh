@@ -14,7 +14,7 @@ echo "Test case 1 is finished, the result is under tests/test1.txt"
 bash ./clear.sh
 
 echo "Start testing test case 2"
-bash ./setup.sh
+bash ./setup2.sh
 ssh ${username}@${testServer} << 'END_SSH'
 set -x
 targetPath=./cs677/lab2
@@ -25,7 +25,7 @@ echo "Test case 2 is finished, the result is under tests/test2.txt"
 bash ./clear.sh
 
 echo "Start testing test case 3"
-bash ./setup.sh
+bash ./setup2.sh
 ssh ${username}@${testServer} << 'END_SSH'
 set -x
 targetPath=./cs677/lab2
@@ -37,7 +37,7 @@ echo "Test case 3 is finished, the result is under tests/test3.txt"
 bash ./clear.sh
 
 echo "Start testing test case 4"
-bash ./setup.sh
+bash ./setup3.sh
 ssh ${username}@${testServer} << 'END_SSH'
 set -x
 targetPath=./cs677/lab2
